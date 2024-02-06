@@ -1,0 +1,17 @@
+version: "3.8" # Use the latest version of Docker Compose file format
+services:
+  mysql:
+    image: mysql:latest # Use the latest version of MySQL image
+    environment:
+      MYSQL_ROOT_PASSWORD: root # Root password
+      MYSQL_DATABASE: my_database # Name of the database
+      MYSQL_USER: phpmyadmin # Additional user
+      MYSQL_PASSWORD: root1234 # Password for the additional user
+    volumes:
+      - mysql_data:/var/lib/mysql # Data persistence
+    ports:
+      - "3306:3306" # Expose port  3306 to the host
+
+volumes:
+  mysql_data:
+    driver: local
